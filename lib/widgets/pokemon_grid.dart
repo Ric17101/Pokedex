@@ -1,13 +1,12 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex/widgets/pokemon_grid_items.dart';
 
 import '../models/pokemon_model.dart';
-import 'pokemon_card.dart';
 
 class PokemonGrid extends StatefulWidget {
   final List<Pokemon> pokemon;
-
   const PokemonGrid({Key? key, required this.pokemon}) : super(key: key);
-
   @override
   PokemonGridState createState() => PokemonGridState();
 }
@@ -15,6 +14,7 @@ class PokemonGrid extends StatefulWidget {
 class PokemonGridState extends State<PokemonGrid> {
   @override
   Widget build(BuildContext context) {
+    final scrollController = ScrollController();
     final width = MediaQuery.of(context).size.width;
     final crossAxisCount = (width > 1000)
         ? 5
@@ -23,23 +23,21 @@ class PokemonGridState extends State<PokemonGrid> {
             : (width > 450)
                 ? 3
                 : 2;
-    return GridView.count(
-      padding: const EdgeInsets.all(7),
-      crossAxisCount: crossAxisCount,
-      crossAxisSpacing: 4,
-      mainAxisSpacing: 4,
-      semanticChildCount: 250,
-      childAspectRatio: 200 / 244,
-      physics: const BouncingScrollPhysics(),
-      children: widget.pokemon
-          .map(
-            (pokemon) => PokemonCard(
-              id: pokemon.id,
-              name: pokemon.name,
-              image: pokemon.img,
-            ),
-          )
-          .toList(),
+    return LiveSliverGrid(
+      itemCount: 250,
+      controller: scrollController,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: widget.pokemon.isEmpty ? 1 : crossAxisCount,
+        crossAxisSpacing: 4,
+        mainAxisSpacing: 4,
+        childAspectRatio: 200 / 244,
+      ),
+      showItemInterval: const Duration(milliseconds: 150),
+      showItemDuration: const Duration(milliseconds: 750),
+      visibleFraction: 0.001,
+      itemBuilder: (context, index, animation) {
+        return pokemonGridItem(context, index, animation, widget.pokemon);
+      },
     );
   }
 }

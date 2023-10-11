@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:pokedex/widgets/pokemon_grid.dart';
 
 import '../api/pokemon_api.dart';
 import '../models/pokemon_model.dart';
+import '../widgets/home_app_bar.dart';
+import '../widgets/pokemon_grid.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -37,10 +38,15 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Pokedex"),
+      backgroundColor: Colors.white,
+      body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          const HomeAppBar(),
+          const SliverPadding(padding: EdgeInsets.all(4)),
+          PokemonGrid(pokemon: pokemon),
+        ],
       ),
-      body: PokemonGrid(pokemon: pokemon),
       floatingActionButton: FloatingActionButton(
         heroTag: "fab",
         onPressed: () {},

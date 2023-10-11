@@ -10,6 +10,7 @@ class Details extends StatelessWidget {
   final String? name;
   final String? image;
   const Details({Key? key, this.id, this.name, this.image}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

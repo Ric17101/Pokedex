@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/models/pokemon_screen_data.dart';
 import 'package:pokedex/widgets/pokemon_card_background.dart';
 import 'package:pokedex/widgets/pokemon_card_data.dart';
 
