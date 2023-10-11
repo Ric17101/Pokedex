@@ -5,46 +5,38 @@ class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
-  SplashScreenState createState() => SplashScreenState();
+  _SplashScreenState createState() => _SplashScreenState();
 }
 
-class SplashScreenState extends State<SplashScreen>
+class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
   late final _slideAnimationController = AnimationController(
     vsync: this,
     duration: const Duration(seconds: 1),
   );
-
-  late final Animation<Offset> _slideAnimation = Tween<Offset>(
-    begin: const Offset(0, -4),
-    end: const Offset(0, 0),
-  ).animate(
+  late final Animation<Offset> _slideAnimation =
+      Tween<Offset>(begin: const Offset(0, -4), end: const Offset(0, 0))
+          .animate(
     CurvedAnimation(
       parent: _slideAnimationController,
       curve: Curves.elasticInOut,
     ),
   );
-
   late final _fadeAnimationController = AnimationController(
     vsync: this,
     duration: const Duration(seconds: 1),
   );
-
   late final Animation<double> _fadeAnimation = CurvedAnimation(
     parent: _fadeAnimationController,
     curve: Curves.easeInOut,
   );
-
   late final _scaleAnimationController = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 1500),
     reverseDuration: const Duration(milliseconds: 444),
   );
-
-  late final Animation<double> _scaleAnimation = Tween<double>(
-    begin: 0.4,
-    end: 4,
-  ).animate(
+  late final Animation<double> _scaleAnimation =
+      Tween<double>(begin: 0.4, end: 4).animate(
     CurvedAnimation(
       parent: _scaleAnimationController,
       curve: Curves.elasticInOut,
@@ -60,7 +52,6 @@ class SplashScreenState extends State<SplashScreen>
       _fadeAnimationController.reverse();
       _scaleAnimationController.forward();
     });
-
     Future.delayed(const Duration(seconds: 2)).then(
       (value) => Navigator.pushReplacement(
         context,

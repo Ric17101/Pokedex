@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/widgets/detail_back_button.dart';
 import 'package:pokedex/widgets/detail_data.dart';
 import 'package:pokedex/widgets/detail_image.dart';
-
-import '../widgets/detail_title.dart';
+import 'package:pokedex/widgets/detail_title.dart';
 
 class Details extends StatefulWidget {
   final int? id;

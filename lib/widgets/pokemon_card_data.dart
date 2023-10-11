@@ -5,12 +5,14 @@ class PokemonCardData extends StatelessWidget {
   final int id;
   final String image;
   final String name;
+
   const PokemonCardData({
     Key? key,
     required this.id,
     required this.name,
     required this.image,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,17 +25,13 @@ class PokemonCardData extends StatelessWidget {
               tag: "image-$id",
               child: CachedNetworkImage(
                 imageUrl: image,
+                fadeInCurve: Curves.easeInOut,
                 fit: BoxFit.contain,
                 alignment: Alignment.bottomRight,
                 placeholder: (context, url) =>
                     const Center(child: CircularProgressIndicator()),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
-              // child: Image.network(
-              //   image,
-              //   fit: BoxFit.contain,
-              //   alignment: Alignment.bottomRight,
-              // ),
             ),
           ),
         ),

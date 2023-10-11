@@ -33,17 +33,13 @@ class DetailImage extends StatelessWidget {
               tag: "image-$id",
               child: CachedNetworkImage(
                 imageUrl: image,
+                fadeInCurve: Curves.easeInOut,
                 fit: BoxFit.contain,
                 alignment: Alignment.center,
                 placeholder: (context, url) =>
                     const Center(child: CircularProgressIndicator()),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
-              // child: Image.network(
-              //   image,
-              //   fit: BoxFit.contain,
-              //   alignment: Alignment.center,
-              // ),
             ),
           ],
         ),

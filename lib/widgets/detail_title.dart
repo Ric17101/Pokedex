@@ -31,21 +31,18 @@ class DetailTitle extends StatelessWidget {
                 ),
               ),
               child: Container(
-                height: 40,
-                width: 40,
                 margin: const EdgeInsets.only(right: 7),
+                padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(51),
                   color: Colors.red[100],
                 ),
-                child: Center(
-                  child: Text(
-                    id.toString(),
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 21,
-                      fontWeight: FontWeight.w600,
-                    ),
+                child: Text(
+                  id.toString(),
+                  overflow: TextOverflow.fade,
+                  style: const TextStyle(
+                    fontSize: 24,
+                    color: Colors.black,
                   ),
                 ),
               ),
@@ -61,10 +58,13 @@ class DetailTitle extends StatelessWidget {
                   Radius.circular(21),
                 ),
               ),
-              child: Chip(
-                labelPadding: const EdgeInsets.fromLTRB(14, 4, 14, 4),
-                backgroundColor: Colors.white,
-                label: Text(
+              child: Container(
+                padding: const EdgeInsets.fromLTRB(14, 4, 14, 4),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(21),
+                  color: Colors.white,
+                ),
+                child: Text(
                   "${name[0].toUpperCase()}${name.substring(1)}",
                   overflow: TextOverflow.fade,
                   style: const TextStyle(

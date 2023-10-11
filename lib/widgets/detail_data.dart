@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class DetailData extends StatefulWidget {
   final int id;
-
   const DetailData({Key? key, required this.id}) : super(key: key);
 
   @override
@@ -13,13 +12,10 @@ class _DetailDataState extends State<DetailData>
     with SingleTickerProviderStateMixin {
   late final AnimationController _slideAnimationController =
       AnimationController(
-    vsync: this,
-    duration: const Duration(milliseconds: 500),
-  );
-  late final Animation<Offset> _slideAnimation = Tween<Offset>(
-    begin: const Offset(0, 1),
-    end: Offset.zero,
-  ).animate(_slideAnimationController);
+          vsync: this, duration: const Duration(milliseconds: 500));
+  late final Animation<Offset> _slideAnimation =
+      Tween<Offset>(begin: const Offset(0, 1), end: Offset.zero)
+          .animate(_slideAnimationController);
 
   @override
   void initState() {

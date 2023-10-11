@@ -1,12 +1,12 @@
 import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
+import 'package:pokedex/models/poke_model.dart';
 import 'package:pokedex/widgets/pokemon_grid_items.dart';
-
-import '../models/pokemon_model.dart';
 
 class PokemonGrid extends StatefulWidget {
   final List<Pokemon> pokemon;
   const PokemonGrid({Key? key, required this.pokemon}) : super(key: key);
+
   @override
   PokemonGridState createState() => PokemonGridState();
 }
@@ -23,6 +23,7 @@ class PokemonGridState extends State<PokemonGrid> {
             : (width > 450)
                 ? 3
                 : 2;
+
     return LiveSliverGrid(
       itemCount: 250,
       controller: scrollController,

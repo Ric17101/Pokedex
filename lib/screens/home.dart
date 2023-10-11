@@ -1,19 +1,21 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 
-import '../api/pokemon_api.dart';
-import '../models/pokemon_model.dart';
-import '../widgets/home_app_bar.dart';
-import '../widgets/pokemon_grid.dart';
+import 'package:flutter/material.dart';
+import 'package:pokedex/api/pokeapi.dart';
+import 'package:pokedex/models/poke_model.dart';
+import 'package:pokedex/widgets/home_app_bar.dart';
+import 'package:pokedex/widgets/pokemon_grid.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
   List<Pokemon> pokemon = List.empty();
+
   @override
   void initState() {
     super.initState();

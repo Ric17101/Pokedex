@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/screens/details.dart';
+import 'package:pokedex/screens/home.dart';
 import 'package:pokedex/screens/splash.dart';
-
-import 'screens/details.dart';
-import 'screens/home.dart';
 
 void main() {
   runApp(const App());

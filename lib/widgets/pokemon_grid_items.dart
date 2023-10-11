@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/models/poke_model.dart';
 import 'package:pokedex/widgets/pokemon_card.dart';
-
-import '../models/pokemon_model.dart';
 
 Widget pokemonGridItem(
   BuildContext context,
