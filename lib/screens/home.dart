@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:pokedex/widgets/pokemon_grid.dart';
 
@@ -8,14 +7,12 @@ import '../models/pokemon_model.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
-
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
   List<Pokemon> pokemon = List.empty();
-
   @override
   void initState() {
     super.initState();
@@ -45,6 +42,7 @@ class _HomeState extends State<Home> {
       ),
       body: PokemonGrid(pokemon: pokemon),
       floatingActionButton: FloatingActionButton(
+        heroTag: "fab",
         onPressed: () {},
         tooltip: 'Share',
         child: const Icon(
