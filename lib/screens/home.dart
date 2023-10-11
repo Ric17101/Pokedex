@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:pokedex/api/pokeapi.dart';
 import 'package:pokedex/models/poke_model.dart';
+import 'package:pokedex/utilities/app_config.dart';
 import 'package:pokedex/widgets/home_app_bar.dart';
 import 'package:pokedex/widgets/pokemon_grid.dart';
 
@@ -29,8 +30,7 @@ class _HomeState extends State<Home> {
       setState(() {
         pokemon = data.asMap().entries.map<Pokemon>((element) {
           element.value['id'] = element.key + 1;
-          element.value['img'] =
-              "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${element.key + 1}.png";
+          element.value['img'] = AppConfig().pokemonImageApi((element.key + 1));
           return Pokemon.fromJson(element.value);
         }).toList();
       });

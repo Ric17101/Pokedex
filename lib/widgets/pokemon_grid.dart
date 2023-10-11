@@ -25,7 +25,7 @@ class PokemonGridState extends State<PokemonGrid> {
                 : 2;
 
     return LiveSliverGrid(
-      itemCount: 250,
+      itemCount:  widget.pokemon.length,
       controller: scrollController,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: widget.pokemon.isEmpty ? 1 : crossAxisCount,
